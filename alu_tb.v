@@ -199,6 +199,29 @@ module alu_tb();
         #1;
         assert(ALUoutput == 32'b00000000001111111111111111111110);
         $display("Passed Extra SRA, SRL Operation");
+        reg_read_a = 32'b00101001011110001110101010101011;
+        alub = 32'b01010101010101010101010101010101;
+        ALUcon= 6;
+        unsign=0;
+        #1;
+        assert(hi== 32'b00001101110100101111100011100011);
+        assert(lo== 32'b10011100110101111011000111000111);
+        $display("Passed Extra Long Multiplication");
+        #1;
+        unsign =0;
+        reg_read_a = 32'b00101001011110001110101010101011;
+        alub = 32'b11010101010101010101010101010101;
+        #1;
+        assert (hi ==32'b11111001000101101000001110001110);
+        assert (lo == 32'b00011100110101111011000111000111);
+        $display("Passed sign long multiplication");
+        unsign=1;
+        reg_read_a = 32'b00101001011110001110101010101011;
+        alub = 32'b11010101010101010101010101010101;
+        #1;
+
+
+
 
         $finish(0);
     end
