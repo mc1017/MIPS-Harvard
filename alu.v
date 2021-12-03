@@ -26,6 +26,10 @@ typedef enum logic[3:0]{
 } opcode_t;
 
     always @(*)  begin
+        eq=0;
+        lt=0;
+        hi=0;
+        lo=0;
         if (ALUcon == OPCODE_ADD) begin
             if (unsign ==0) begin
                 ALUoutput= reg_read_a + alub;
