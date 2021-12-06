@@ -1,0 +1,15 @@
+if(instr_address == 32'd0) begin 
+			instr_readdata = 32'b00100100001001000000000000100000; 
+		end 
+		if(instr_address == 32'd4) begin 
+			instr_readdata = 32'b00100100001000110000000000000010; 
+		end 
+		if(instr_address == 32'd8) begin 
+			instr_readdata = 32'b00100100001000100000000000000001; 
+		end 
+		if(instr_address == 32'd12) begin 
+			instr_readdata = 32'b00010100001001001111111111111000; 
+		end 
+		if(instr_address == 32'd16) begin 
+			instr_readdata = 32'b00001000000000000000000000011100; 
+		end 
