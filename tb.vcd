@@ -1,5 +1,5 @@
 $date
-	Thu Dec  2 20:29:12 2021
+	Fri Dec  3 05:22:53 2021
 $end
 $version
 	Icarus Verilog
@@ -215,9 +215,9 @@ b100100001000110000000000000101 p
 bx o
 bx n
 b0 m
-bx l
+b0 l
 b1001 k
-bx j
+b0 j
 b101 i
 b101 h
 b100100001000110000000000000101 g
@@ -232,8 +232,8 @@ b11 _
 b1001 ^
 b101 ]
 bx \
-bx [
-bx Z
+b0 [
+b0 Z
 b101 Y
 b0 X
 b0 W
@@ -255,13 +255,13 @@ b101 H
 1G
 0F
 b101 E
-xD
-bx C
+0D
+b0 C
 b101 B
 0A
 bx @
-bx ?
-x>
+b0 ?
+0>
 0=
 b1000 <
 b1000 ;
@@ -1167,7 +1167,6 @@ b1010 R
 b1010 f
 b1010 T
 b1010 t
-0>
 b1010 H
 b1010 Y
 b1111 #
