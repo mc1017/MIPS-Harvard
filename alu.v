@@ -119,16 +119,16 @@ typedef enum logic[3:0]{
             
         end
         else if (ALUcon == OPCODE_SLL) begin
-            ALUoutput = reg_read_a << alub;
+            ALUoutput = alub<<reg_read_a;
         end
         else if (ALUcon == OPCODE_XOR) begin
             ALUoutput = reg_read_a ^ alub;
         end
         else if (ALUcon == OPCODE_SRA) begin
-            ALUoutput = reg_read_a>>>alub;
+            ALUoutput = alub>>>reg_read_a;
         end
         else if (ALUcon == OPCODE_SRL) begin
-            ALUoutput = reg_read_a >>alub;
+            ALUoutput = alub>>reg_read_a;
         end
     end
     
