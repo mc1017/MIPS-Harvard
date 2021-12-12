@@ -1,0 +1,376 @@
+$date
+	Sun Dec 12 14:54:14 2021
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module addiu1 $end
+$var wire 32 ! register_v0 [31:0] $end
+$var wire 32 " instr_address [31:0] $end
+$var wire 32 # data_writedata [31:0] $end
+$var wire 1 $ data_write $end
+$var wire 32 % data_readdata [31:0] $end
+$var wire 1 & data_read $end
+$var wire 32 ' data_address [31:0] $end
+$var wire 1 ( active $end
+$var reg 1 ) clk $end
+$var reg 1 * clk_enable $end
+$var reg 32 + instr_readdata [31:0] $end
+$var reg 1 , reset $end
+$scope module dm $end
+$var wire 1 ) clk $end
+$var wire 1 * clock_enable $end
+$var wire 1 , reset $end
+$var wire 32 - write_data [31:0] $end
+$var wire 1 $ write $end
+$var wire 1 & read $end
+$var wire 32 . address [31:0] $end
+$var reg 32 / c [31:0] $end
+$var reg 32 0 read_data [31:0] $end
+$upscope $end
+$scope module dut $end
+$var wire 1 ) clk $end
+$var wire 1 * clk_enable $end
+$var wire 32 1 data_readdata [31:0] $end
+$var wire 32 2 instr_address [31:0] $end
+$var wire 32 3 instr_readdata [31:0] $end
+$var wire 32 4 instruction [31:0] $end
+$var wire 1 , reset $end
+$var wire 32 5 sb_mem_in [31:0] $end
+$var wire 32 6 sb_reg_in [31:0] $end
+$var wire 1 7 unsign $end
+$var wire 32 8 target [31:0] $end
+$var wire 32 9 sb_out [31:0] $end
+$var wire 32 : sa [31:0] $end
+$var wire 1 ; regwrite $end
+$var wire 1 < regdst $end
+$var wire 32 = reg_write_data_3 [31:0] $end
+$var wire 32 > reg_write_data_2 [31:0] $end
+$var wire 32 ? reg_write_data [31:0] $end
+$var wire 5 @ reg_write_addr [4:0] $end
+$var wire 32 A reg_read_b [31:0] $end
+$var wire 32 B reg_read_a [31:0] $end
+$var wire 32 C r2 [31:0] $end
+$var wire 32 D pc_out [31:0] $end
+$var wire 32 E pc4 [31:0] $end
+$var wire 1 F memtoreg $end
+$var wire 1 G lt $end
+$var wire 32 H lo [31:0] $end
+$var wire 32 I link_data [31:0] $end
+$var wire 1 J jump $end
+$var wire 32 K imm [31:0] $end
+$var wire 32 L hi [31:0] $end
+$var wire 1 M eq $end
+$var wire 1 $ data_write $end
+$var wire 1 & data_read $end
+$var wire 32 N data_address [31:0] $end
+$var wire 1 O branch $end
+$var wire 1 P alusrc $end
+$var wire 32 Q aluout [31:0] $end
+$var wire 2 R alucwire [1:0] $end
+$var wire 4 S alucon [3:0] $end
+$var wire 32 T alub1 [31:0] $end
+$var wire 32 U alua_in [31:0] $end
+$var reg 1 ( active $end
+$var reg 5 V addrd [4:0] $end
+$var reg 5 W addrs [4:0] $end
+$var reg 5 X addrt [4:0] $end
+$var reg 32 Y alub_in [31:0] $end
+$var reg 32 Z data_writedata [31:0] $end
+$var reg 6 [ func [5:0] $end
+$var reg 6 \ insop [5:0] $end
+$var reg 32 ] mem_addr_hold [31:0] $end
+$var reg 5 ^ reg_write_addr_hold [4:0] $end
+$var reg 32 _ reg_write_data_1 [31:0] $end
+$var reg 32 ` register_v0 [31:0] $end
+$scope module alu_block $end
+$var wire 32 a alub [31:0] $end
+$var wire 1 7 unsign $end
+$var wire 32 b reg_read_a [31:0] $end
+$var wire 4 c ALUcon [3:0] $end
+$var reg 32 d ALUoutput [31:0] $end
+$var reg 1 M eq $end
+$var reg 32 e hi [31:0] $end
+$var reg 32 f lo [31:0] $end
+$var reg 1 G lt $end
+$var reg 64 g multiplier [63:0] $end
+$upscope $end
+$scope module alucontrol_block $end
+$var wire 6 h func [5:0] $end
+$var wire 6 i op [5:0] $end
+$var wire 2 j ALUop [1:0] $end
+$var reg 4 k ALUcon [3:0] $end
+$upscope $end
+$scope module branch_data_block $end
+$var wire 32 l imm [31:0] $end
+$var wire 6 m insop [5:0] $end
+$var reg 32 n alub [31:0] $end
+$upscope $end
+$scope module control_block $end
+$var wire 5 o branchfield [4:0] $end
+$var wire 6 p func [5:0] $end
+$var wire 6 q insop [5:0] $end
+$var wire 1 ; regwrite $end
+$var wire 1 < regdst $end
+$var wire 1 $ memwrite $end
+$var wire 1 F memtoreg $end
+$var wire 1 & memread $end
+$var wire 1 J jump $end
+$var wire 1 O branch $end
+$var wire 1 P ALUsrc $end
+$var wire 2 r ALUop [1:0] $end
+$var reg 10 s controlsig [9:0] $end
+$upscope $end
+$scope module dac_block $end
+$var wire 32 t address [31:0] $end
+$var wire 32 u instruction [31:0] $end
+$var reg 32 v address_out [31:0] $end
+$upscope $end
+$scope module hilo_block $end
+$var wire 6 w func [5:0] $end
+$var wire 32 x hi_in [31:0] $end
+$var wire 6 y insop [5:0] $end
+$var wire 32 z lo_in [31:0] $end
+$var wire 32 { reg_read_a [31:0] $end
+$var reg 32 | hi [31:0] $end
+$var reg 32 } lo [31:0] $end
+$upscope $end
+$scope module link_block $end
+$var wire 32 ~ instruction [31:0] $end
+$var wire 5 !" reg_write_addr_in [4:0] $end
+$var wire 32 "" old_reg_data [31:0] $end
+$var wire 32 #" new_reg_data [31:0] $end
+$var reg 32 $" new_reg_write_data [31:0] $end
+$var reg 5 %" reg_write_addr_out [4:0] $end
+$upscope $end
+$scope module load_block $end
+$var wire 32 &" instruction [31:0] $end
+$var wire 32 '" read_data [31:0] $end
+$var reg 32 (" out [31:0] $end
+$var reg 32 )" reg_data [31:0] $end
+$upscope $end
+$scope module lw_block $end
+$var wire 32 *" instruction [31:0] $end
+$var wire 32 +" mem_address [31:0] $end
+$var wire 32 ," read_data [31:0] $end
+$var wire 32 -" reg_d [31:0] $end
+$var reg 32 ." out [31:0] $end
+$var reg 32 /" reg_data [31:0] $end
+$upscope $end
+$scope module pcupdate_block $end
+$var wire 1 O branch $end
+$var wire 1 ) clk $end
+$var wire 1 * clk_enable $end
+$var wire 1 M eq $end
+$var wire 32 0" immediate [31:0] $end
+$var wire 32 1" instruction [31:0] $end
+$var wire 1 J jump $end
+$var wire 1 G lt $end
+$var wire 32 2" pc4 [31:0] $end
+$var wire 1 , reset $end
+$var wire 32 3" target [31:0] $end
+$var wire 32 4" reg_read [31:0] $end
+$var reg 1 5" branch_d $end
+$var reg 1 6" fail $end
+$var reg 1 7" jump_d $end
+$var reg 32 8" out [31:0] $end
+$var reg 32 9" pc_out [31:0] $end
+$var reg 32 :" pc_out_d [31:0] $end
+$var reg 32 ;" pc_target [31:0] $end
+$var reg 32 <" reg_out [31:0] $end
+$var reg 32 =" shift [31:0] $end
+$upscope $end
+$scope module regfile $end
+$var wire 5 >" address_1 [4:0] $end
+$var wire 5 ?" address_2 [4:0] $end
+$var wire 1 ) clk $end
+$var wire 1 * clk_enable $end
+$var wire 1 , reset $end
+$var wire 5 @" write_address [4:0] $end
+$var wire 32 A" write_data [31:0] $end
+$var wire 1 ; write_enable $end
+$var reg 5 B" c [4:0] $end
+$var reg 32 C" d [31:0] $end
+$var reg 32 D" read_data1 [31:0] $end
+$var reg 32 E" read_data2 [31:0] $end
+$var reg 32 F" register_v0 [31:0] $end
+$upscope $end
+$scope module sb_block $end
+$var wire 6 G" insop [5:0] $end
+$var wire 32 H" mem_data [31:0] $end
+$var wire 32 I" reg_data [31:0] $end
+$var reg 32 J" out [31:0] $end
+$upscope $end
+$scope module shift_control_block $end
+$var wire 32 K" instruction [31:0] $end
+$var wire 32 L" org_data [31:0] $end
+$var wire 32 M" sa [31:0] $end
+$var reg 32 N" alu_in [31:0] $end
+$upscope $end
+$scope module unsign_block $end
+$var wire 32 O" instruction [31:0] $end
+$var reg 1 7 unsign $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+bx O"
+bx N"
+b0xxxxx M"
+bx L"
+bx K"
+bx J"
+bx I"
+bx H"
+bx G"
+b0 F"
+bx E"
+bx D"
+b0 C"
+b0 B"
+bx A"
+bx @"
+bx ?"
+bx >"
+bx ="
+bx <"
+bx ;"
+b11111111111111111111111111111100 :"
+bx 9"
+bx 8"
+x7"
+x6"
+x5"
+bx 4"
+b1111xxxxxxxxxxxxxxxxxxxxxxxxxx00 3"
+b0 2"
+bx 1"
+b0xxxxxxxxxxxxxxxx 0"
+bx /"
+bx ."
+bx -"
+bx ,"
+bx +"
+bx *"
+bx )"
+bx ("
+bx '"
+bx &"
+bx %"
+bx $"
+bx #"
+bx ""
+bx !"
+bx ~
+bx }
+bx |
+bx {
+bx z
+bx y
+bx x
+bx w
+bx v
+bx u
+bx t
+bx s
+bx r
+bx q
+bx p
+bx o
+b0xxxxxxxxxxxxxxxx n
+bx m
+b0xxxxxxxxxxxxxxxx l
+bx k
+bx j
+bx i
+bx h
+bx g
+bx f
+bx e
+bx d
+bx c
+bx b
+bx a
+bx `
+bx _
+bx ^
+bx ]
+bx \
+bx [
+bx Z
+bx Y
+bx X
+bx W
+bx V
+bx U
+b0xxxxxxxxxxxxxxxx T
+bx S
+bx R
+bx Q
+xP
+xO
+bx N
+xM
+bx L
+b0xxxxxxxxxxxxxxxx K
+xJ
+bx I
+bx H
+xG
+xF
+b0 E
+b11111111111111111111111111111100 D
+b0 C
+bx B
+bx A
+bx @
+bx ?
+bx >
+bx =
+x<
+x;
+b0xxxxx :
+bx 9
+b1111xxxxxxxxxxxxxxxxxxxxxxxxxx00 8
+x7
+bx 6
+bx 5
+bx 4
+bx 3
+b11111111111111111111111111111100 2
+bx 1
+bx 0
+b1000000000000 /
+bx .
+bx -
+0,
+bx +
+1*
+0)
+0(
+bx '
+x&
+bx %
+x$
+bx #
+b11111111111111111111111111111100 "
+bx !
+$end
+#4
+b0xxxxxxxxxxxxxxxxxxxxxxxxxx00 8
+b0xxxxxxxxxxxxxxxxxxxxxxxxxx00 3"
+b0 !
+b0 `
+b100 E
+b100 2"
+b0 "
+b0 2
+b0 D
+b0 :"
+b0 9"
+1)
