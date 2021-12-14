@@ -31,12 +31,9 @@ module bne1;
 			instr_readdata = 32'b00100100010000100000000000000001; 
 		end
         if(instr_address == 32'hBFC00014) begin 
-			instr_readdata = 32'b00100100010000100000000000000001; 
-		end
-        if(instr_address == 32'hBFC00018) begin 
 			instr_readdata = 32'b00000000000000000000000000001000; 
 		end
-        if(instr_address == 32'hBFC0001C) begin 
+        if(instr_address == 32'hBFC00018) begin 
 			instr_readdata = 32'b00100100000000000000000000000000; 
 		end
 	end
