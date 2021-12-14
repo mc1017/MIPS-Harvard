@@ -36,7 +36,7 @@ module j2;
 	end
 	always @(negedge clk) begin
 		if (instr_address==0) begin
-			assert(register_v0 ==64);
+			assert(register_v0 ==32);
 			else $fatal(1,"Wrong Output");
 		end
 		

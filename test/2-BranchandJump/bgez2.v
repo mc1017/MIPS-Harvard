@@ -57,7 +57,6 @@ module bgez2;
 	end
 	always @(negedge clk) begin
 		if (instr_address==0) begin
-            $display("%d", register_v0);
 			assert(register_v0 ==128);
 			else $fatal(1,"Wrong Output");
 		end
