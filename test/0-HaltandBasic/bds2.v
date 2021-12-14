@@ -16,7 +16,7 @@ module bds2;
 	
 	always @(*) begin 
 		if(instr_address == 32'hBFC00000) begin 
-			instr_readdata = 32'b00100100000000000000000000000001; 
+			instr_readdata = 32'b00100100010000100000000000000001; 
 		end 
 		if(instr_address == 32'hBFC00004) begin 
 			instr_readdata = 32'b00000000000000000000000000001000; 
@@ -27,7 +27,7 @@ module bds2;
 	end
 	always @(negedge clk) begin
 		if (instr_address==0) begin
-			assert(register_v0 ==2);
+			assert(register_v0 ==1);
 			else $fatal(1,"Wrong Output");
 		end
 		

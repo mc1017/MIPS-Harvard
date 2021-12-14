@@ -1,4 +1,4 @@
-module bds1;
+module lw2;
 	
 	logic clk, reset, active, clk_enable, data_write, data_read; 
 	logic[31:0] instr_address, instr_readdata, data_address, data_writedata, data_readdata, register_v0; 
@@ -15,17 +15,25 @@ module bds1;
 	end 
 	
 	always @(*) begin 
-		
 		if(instr_address == 32'hBFC00000) begin 
+			instr_readdata = 32'b10001100000000010000000000000100; 
+		end 
+		if(instr_address == 32'hBFC00004) begin 
+			instr_readdata = 32'b10001100000001000000000000001000; 
+		end
+        if(instr_address == 32'hBFC00008) begin 
+			instr_readdata = 32'b00000000001001000001000000100001; 
+		end
+        if(instr_address == 32'hBFC0000C) begin 
 			instr_readdata = 32'b00000000000000000000000000001000; 
 		end
-        if(instr_address == 32'hBFC00004) begin 
-			instr_readdata = 32'b00100100000000000000000000000001; 
+        if(instr_address == 32'hBFC00010) begin 
+			instr_readdata = 32'b00100100000000000000000000000000; 
 		end
 	end
 	always @(negedge clk) begin
 		if (instr_address==0) begin
-			assert(register_v0 ==0);
+			assert(register_v0 ==32'h56565656);
 			else $fatal(1,"Wrong Output");
 		end
 		
