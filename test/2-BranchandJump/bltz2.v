@@ -43,7 +43,7 @@ module bltz2;
 			instr_readdata = 32'b00100100010000100000000000100000; 
 		end
         if(instr_address == 32'hBFC00024) begin 
-			instr_readdata = 32'b00100100000000100000000000000001; 
+			instr_readdata = 32'b00100100010000100000000000000001; 
 		end
         if(instr_address == 32'hBFC00028) begin 
 			instr_readdata = 32'b00100100010000100000000000100000; 
