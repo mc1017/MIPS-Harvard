@@ -33,7 +33,7 @@ module lui2;
 	end
 	always @(negedge clk) begin
 		if (instr_address==0) begin
-			assert(register_v0 ==32'h500000);
+			assert(register_v0 ==32'h50000);
 			else $fatal(1,"Wrong Output");
 		end
 		

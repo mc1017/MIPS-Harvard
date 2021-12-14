@@ -16,7 +16,7 @@ module lwr1;
 	
 	always @(*) begin 
 		if(instr_address == 32'hBFC00000) begin 
-			instr_readdata = 32'b10001100000000100000000000000000; 
+			instr_readdata = 32'b10011000000000100000000000000000; 
 		end 
 		if(instr_address == 32'hBFC00004) begin 
 			instr_readdata = 32'b00000000000000000000000000001000; 
@@ -27,7 +27,7 @@ module lwr1;
 	end
 	always @(negedge clk) begin
 		if (instr_address==0) begin
-			assert(register_v0 ==32'h000000FF);
+			assert(register_v0 ==32'hFF);
 			else $fatal(1,"Wrong Output");
 		end
 		

@@ -16,7 +16,7 @@ module lbu2;
 	
 	always @(*) begin 
 		if(instr_address == 32'hBFC00000) begin 
-			instr_readdata = 32'b10010000000000100000000000000000; 
+			instr_readdata = 32'b10010000000000010000000000000000; 
 		end 
 		if(instr_address == 32'hBFC00004) begin 
 			instr_readdata = 32'b10010000000001000000000000001000; 

@@ -1,4 +1,4 @@
-module lwr1;
+module lwr2;
 	
 	logic clk, reset, active, clk_enable, data_write, data_read; 
 	logic[31:0] instr_address, instr_readdata, data_address, data_writedata, data_readdata, register_v0; 
@@ -16,7 +16,7 @@ module lwr1;
 	
 	always @(*) begin 
 		if(instr_address == 32'hBFC00000) begin 
-			instr_readdata = 32'b10001100000000100000000000000011; 
+			instr_readdata = 32'b10011000000000100000000000000011; 
 		end 
 		if(instr_address == 32'hBFC00004) begin 
 			instr_readdata = 32'b00000000000000000000000000001000; 

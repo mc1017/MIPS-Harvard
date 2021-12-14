@@ -19,10 +19,10 @@ module sllv2;
 			instr_readdata = 32'b00100100100001000110000000000110; 
 		end 
 		if(instr_address == 32'hBFC00004) begin 
-			instr_readdata = 32'b00100100101001010101010101010010; 
+			instr_readdata = 32'b00100100101001010000000000010010; 
 		end
         if(instr_address == 32'hBFC00008) begin 
-			instr_readdata = 32'b00000000101001000001000000000100; 
+			instr_readdata = 32'b00000000101001000001000000000100;
 		end
 		if(instr_address == 32'hBFC0000C) begin 
 			instr_readdata = 32'b00000000000000000000000000001000; 

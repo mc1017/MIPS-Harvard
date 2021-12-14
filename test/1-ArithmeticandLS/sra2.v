@@ -25,15 +25,19 @@ module sra2;
 			instr_readdata = 32'b00100100100001000110000000000110; 
 		end
 		if(instr_address == 32'hBFC0000C) begin 
+			instr_readdata = 32'b00000000000001000001000010000011; 
+		end
+		if(instr_address == 32'hBFC00010) begin 
 			instr_readdata = 32'b00000000000000000000000000001000; 
 		end
-        if(instr_address == 32'hBFC00010) begin 
+        if(instr_address == 32'hBFC00014) begin 
 			instr_readdata = 32'b00100100000000000000000000000000; 
 		end
 	end
 	always @(negedge clk) begin
 		if (instr_address==0) begin
-			assert(register_v0 ==3937048577);
+			$display("%b",register_v0);
+			assert(register_v0 ==32'b111010101010101010011000000001);
 			else $fatal(1,"Wrong Output");
 		end
 		

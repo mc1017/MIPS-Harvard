@@ -36,7 +36,7 @@ module slti3;
 	end
 	always @(negedge clk) begin
 		if (instr_address==0) begin
-			assert(register_v0 ==1);
+			assert(register_v0 ==0);
 			else $fatal(1,"Wrong Output");
 		end
 		

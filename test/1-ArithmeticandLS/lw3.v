@@ -19,7 +19,7 @@ module lw3;
 			instr_readdata = 32'b00100100001000010000000000000111; 
 		end 
 		if(instr_address == 32'hBFC00004) begin 
-			instr_readdata = 32'b10010100001000100000000000000000; 
+			instr_readdata = 32'b10001100001000100000000000000000; 
 		end
         if(instr_address == 32'hBFC00008) begin 
 			instr_readdata = 32'b00000000000000000000000000001000; 

@@ -19,7 +19,7 @@ module sllv1;
 			instr_readdata = 32'b00100100100001000110000000000110; 
 		end 
 		if(instr_address == 32'hBFC00004) begin 
-			instr_readdata = 32'b00100100101001011010101010100010; 
+			instr_readdata = 32'b00100100101001010000000000000010; 
 		end
         if(instr_address == 32'hBFC00008) begin 
 			instr_readdata = 32'b00000000101001000001000000000100; 
