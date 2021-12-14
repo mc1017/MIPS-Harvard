@@ -16,6 +16,22 @@ module data_memory (
             data_memory[c]=0;
             c+=1;
         end
+		data_memory[0] = 8'b11111111; 
+		data_memory[1] = 8'b11111111; 
+		data_memory[2] = 8'b11111111; 
+		data_memory[3] = 8'b11111111; 
+		data_memory[4] = 8'b01010101; 
+		data_memory[5] = 8'b01010101; 
+		data_memory[6] = 8'b01010101; 
+		data_memory[7] = 8'b01010101; 
+		data_memory[8] = 8'b00000001; 
+		data_memory[9] = 8'b00000001; 
+		data_memory[10] = 8'b00000001; 
+		data_memory[11] = 8'b00000001; 
+		data_memory[12] = 8'b11001100; 
+		data_memory[13] = 8'b11001100; 
+		data_memory[14] = 8'b11001100; 
+		data_memory[15] = 8'b11001100; 
     end
     always_comb begin
         if (read==1) begin
