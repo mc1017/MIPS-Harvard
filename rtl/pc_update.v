@@ -37,13 +37,15 @@ module pc_update(
 				pc_out_d<=pc_out;
 			end
 		end
+		
+		if (reset) begin
+            pc_out_d<=32'hBFC00000;
+        end 
 	end
 	
 	
     always @(*) begin
-        if (reset) begin
-            pc_out=32'hBFC00000;
-        end 
+        
 		if (branch) begin
 			shift=immediate<<2;
 			out=pc4+shift;
@@ -108,7 +110,7 @@ module pc_update(
 					end
 				end 
 				6'b000111: begin //branch on greater than zero
-					if (!lt) begin
+					if (!lt && !eq) begin
 						pc_out=out;
 					end else begin
 						pc_out=pc4+4;
@@ -142,6 +144,7 @@ module pc_update(
 					end
 				end 
 			endcase
+			
 			end
     end
 	
