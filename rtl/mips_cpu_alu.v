@@ -123,7 +123,7 @@ typedef enum logic[3:0]{
             ALUoutput = reg_read_a ^ alub;
         end
         else if (ALUcon == OPCODE_SRA) begin
-            ALUoutput = alub>>>reg_read_a;
+            ALUoutput = $signed(alub)>>>reg_read_a;
         end
         else if (ALUcon == OPCODE_SRL) begin
             ALUoutput = alub>>reg_read_a;
