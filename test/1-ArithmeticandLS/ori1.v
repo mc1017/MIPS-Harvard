@@ -39,6 +39,6 @@ module ori1;
     
 	
 	mips_cpu_harvard dut(clk, reset, active, register_v0, clk_enable, instr_address, instr_readdata, data_address, data_write, data_read, data_writedata, data_readdata);
-	data_memory dm(clk, clk_enable, data_address, data_writedata, data_write, data_read, reset, data_readdata);
+	mips_cpu_data_memory dm(clk, clk_enable, data_address, data_writedata, data_write, data_read, reset, data_readdata);
 	
 endmodule 

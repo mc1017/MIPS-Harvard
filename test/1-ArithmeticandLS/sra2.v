@@ -36,8 +36,7 @@ module sra2;
 	end
 	always @(negedge clk) begin
 		if (instr_address==0) begin
-			$display("%b",register_v0);
-			assert(register_v0 ==32'b111010101010101010011000000001);
+			assert(register_v0 ==32'b11101010101010101001100000000001);
 			else $fatal(1,"Wrong Output");
 		end
 		
@@ -46,6 +45,6 @@ module sra2;
     
 	
 	mips_cpu_harvard dut(clk, reset, active, register_v0, clk_enable, instr_address, instr_readdata, data_address, data_write, data_read, data_writedata, data_readdata);
-	data_memory dm(clk, clk_enable, data_address, data_writedata, data_write, data_read, reset, data_readdata);
+	mips_cpu_data_memory dm(clk, clk_enable, data_address, data_writedata, data_write, data_read, reset, data_readdata);
 	
 endmodule 

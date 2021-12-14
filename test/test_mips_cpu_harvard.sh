@@ -21,7 +21,7 @@ if [[ $instruction != "all_cases" ]]; then
 
         #compile program
         iverilog -g 2012 \
-            -o test/4-Outputs/${TESTNAME} ${i} $1/mips_cpu_harvard.v $1/mips_cpu_alucontrol.v $1/mips_cpu_data_address_control.v $1/mips_cpu_hilo.v $1/mips_cpu_link.v $1/mips_cpu_lw.v $1/mips_cpu_pc_update.v $1/mips_cpu_register_file.v $1/mips_cpu_control.v $1/data_memory.v $1/mips_cpu_load.v $1/mips_cpu_pc.v $1/mips_cpu_unsign.v $1/mips_cpu_alu.v $1/mips_cpu_branch_data.v $1/mips_cpu_shift_control.v $1/mips_cpu_sb.v
+            -o test/4-Outputs/${TESTNAME} ${i} $1/mips_cpu_*.v
 
         #run program
         set +e
@@ -47,7 +47,7 @@ else
         
         #compile program
         iverilog -Wall -g 2012 \
-            -o test/4-Outputs/${TESTNAME} ${i} $1/mips_cpu_harvard.v $1/mips_cpu_alucontrol.v $1/mips_cpu_data_address_control.v $1/mips_cpu_hilo.v $1/mips_cpu_link.v $1/mips_cpu_lw.v $1/mips_cpu_pc_update.v $1/mips_cpu_register_file.v $1/mips_cpu_control.v $1/data_memory.v $1/mips_cpu_load.v $1/mips_cpu_pc.v $1/mips_cpu_unsign.v $1/mips_cpu_alu.v $1/mips_cpu_branch_data.v $1/mips_cpu_shift_control.v $1/mips_cpu_sb.v
+            -o test/4-Outputs/${TESTNAME} ${i} $1/mips_cpu_*.v
 
         #run program    
         set +e
