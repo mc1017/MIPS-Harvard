@@ -67,7 +67,7 @@ module control(
 		6'b000110: controlsig = 10'b0010000101; 
 		6'b000101: controlsig = 10'b0010000001; 
 		6'b000010: controlsig = 10'b0100000000; 
-		6'b000011: controlsig = 10'b0100000000; 
+		6'b000011: controlsig = 10'b0100001000; 
 		6'b100000: controlsig = 10'b0001011111; 
 		6'b100100: controlsig = 10'b0001011111; 
 		6'b100001: controlsig = 10'b0001011111; 
