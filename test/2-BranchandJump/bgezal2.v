@@ -52,18 +52,21 @@ module bgezal2;
 			instr_readdata = 32'b00100100010000100000000000100000; 
 		end
         if(instr_address == 32'hBFC00030) begin 
-			instr_readdata = 32'b00000000100000100001000000100001; 
+			instr_readdata = 32'b00000011111001000010000000100011; 
 		end
         if(instr_address == 32'hBFC00034) begin 
-			instr_readdata = 32'b00000000000000000000000000001000; 
+			instr_readdata = 32'b00000000100000100001000000100001; 
 		end
         if(instr_address == 32'hBFC00038) begin 
+			instr_readdata = 32'b00000000000000000000000000001000; 
+		end
+        if(instr_address == 32'hBFC0003C) begin 
 			instr_readdata = 32'b00100100000000000000000000000000; 
 		end
 	end
 	always @(negedge clk) begin
 		if (instr_address==0) begin
-			assert(register_v0 ==140);
+			assert(register_v0 ==144);
 			else $fatal(1,"Wrong Output");
 		end
 		

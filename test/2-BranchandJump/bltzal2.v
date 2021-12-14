@@ -25,43 +25,48 @@ module bltz2;
 			instr_readdata = 32'b00000100001100000000000000000011; 
 		end
         if(instr_address == 32'hBFC0000C) begin 
-			instr_readdata = 32'b00100100000000100000000000100000; 
+			instr_readdata = 32'b00100100010000100000000000100000; 
 		end
         if(instr_address == 32'hBFC00010) begin 
 			instr_readdata = 32'b00000100011100000000000000000010; 
 		end
         if(instr_address == 32'hBFC00014) begin 
-			instr_readdata = 32'b00100111111001000000000000000000; 
-		end
-        if(instr_address == 32'hBFC00018) begin 
-			instr_readdata = 32'b00000100011100000000000000000010; 
-        end
-		if(instr_address == 32'hBFC0001C) begin 
 			instr_readdata = 32'b00100100010000100000000000100000; 
 		end
-        if(instr_address == 32'hBFC00020) begin 
+        if(instr_address == 32'hBFC00018) begin 
 			instr_readdata = 32'b00100100000000100000000000000001; 
+        end
+		if(instr_address == 32'hBFC0001C) begin 
+			instr_readdata = 32'b00100111111001000000000000000000; 
+		end
+        if(instr_address == 32'hBFC00020) begin 
+			instr_readdata = 32'b00000100011100000000000000000010; 
 		end
         if(instr_address == 32'hBFC00024) begin 
 			instr_readdata = 32'b00100100010000100000000000100000; 
 		end
         if(instr_address == 32'hBFC00028) begin 
-			instr_readdata = 32'b00000011111001000010000000100011; 
+			instr_readdata = 32'b00100100000000100000000000000001; 
         end
 		if(instr_address == 32'hBFC0002C) begin 
+			instr_readdata = 32'b00100100010000100000000000100000; 
+		end
+        if(instr_address == 32'hBFC00030) begin 
+			instr_readdata = 32'b00000011111001000010000000100011; 
+        end
+		if(instr_address == 32'hBFC00034) begin 
 			instr_readdata = 32'b00000000100000100001000000100001; 
 		end
-        if(instr_address == 32'hBFC00030) begin 
+        if(instr_address == 32'hBFC00038) begin 
 			instr_readdata = 32'b00000000000000000000000000001000; 
 		end
-        if(instr_address == 32'hBFC00030) begin 
+        if(instr_address == 32'hBFC0003C) begin 
 			instr_readdata = 32'b00100100000000000000000000000000; 
 		end
-
 	end
 	always @(negedge clk) begin
 		if (instr_address==0) begin
-			assert(register_v0 ==140);
+			assert(register_v0 ==144);
 			else $fatal(1,"Wrong Output");
 		end
 		

@@ -37,16 +37,16 @@ module jalr2;
 			instr_readdata = 32'b00000000001000000010000000001001; 
         end
 		if(instr_address == 32'hBFC0001C) begin 
-			instr_readdata = 32'b00011000000000000000000000000010; 
+			instr_readdata = 32'b00100100010000100000000000100000; 
 		end
         if(instr_address == 32'hBFC00020) begin 
-			instr_readdata = 32'b00100100010000100000000000100000; 
+			instr_readdata = 32'b00100100010000100000000000000001; 
 		end
         if(instr_address == 32'hBFC00024) begin 
-			instr_readdata = 32'b00100100000000100000000000000001; 
+			instr_readdata = 32'b00000000100000110001100000100011; 
 		end
         if(instr_address == 32'hBFC00028) begin 
-			instr_readdata = 32'b00100100010000100000000000100000; 
+			instr_readdata = 32'b00000000010000110001000000100001; 
         end
 		if(instr_address == 32'hBFC0002C) begin 
 			instr_readdata = 32'b00000000000000000000000000001000; 
@@ -57,7 +57,7 @@ module jalr2;
 	end
 	always @(negedge clk) begin
 		if (instr_address==0) begin
-			assert(register_v0 ==128);
+			assert(register_v0 ==44);
 			else $fatal(1,"Wrong Output");
 		end
 		
