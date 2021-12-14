@@ -1,4 +1,4 @@
-module addiu1;
+module sra2;
 	
 	logic clk, reset, active, clk_enable, data_write, data_read; 
 	logic[31:0] instr_address, instr_readdata, data_address, data_writedata, data_readdata, register_v0; 
@@ -16,18 +16,24 @@ module addiu1;
 	
 	always @(*) begin 
 		if(instr_address == 32'hBFC00000) begin 
-			instr_readdata = 32'b00100100010000100000000000001000; 
+			instr_readdata = 32'b00100100100001001010101010101010; 
 		end 
 		if(instr_address == 32'hBFC00004) begin 
+			instr_readdata = 32'b00000000000001000010010000000000; 
+		end
+        if(instr_address == 32'hBFC00008) begin 
+			instr_readdata = 32'b00100100100001000110000000000110; 
+		end
+		if(instr_address == 32'hBFC0000C) begin 
 			instr_readdata = 32'b00000000000000000000000000001000; 
 		end
-		if(instr_address == 32'hBFC00008) begin 
+        if(instr_address == 32'hBFC00010) begin 
 			instr_readdata = 32'b00100100000000000000000000000000; 
 		end
 	end
 	always @(negedge clk) begin
 		if (instr_address==0) begin
-			assert(register_v0 ==8);
+			assert(register_v0 ==3937048577);
 			else $fatal(1,"Wrong Output");
 		end
 		

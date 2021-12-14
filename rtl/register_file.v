@@ -10,16 +10,15 @@ module register_file(
     input logic write_enable,
     output logic[31:0] read_data1,
     output logic[31:0] read_data2
-);
-	reg [31:0] memory[32:0];
-    logic[31:0] d;
+	);
+
+	reg[31:0] memory[32:0];
+	
     logic[4:0] c;
     initial begin
         c=0;
-        d=0;
         repeat (32) begin
             memory[c]=0;
-            //d+=1;
             c+=1;
         end
     end

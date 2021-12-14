@@ -1,4 +1,4 @@
-module addiu1;
+module lb1;
 	
 	logic clk, reset, active, clk_enable, data_write, data_read; 
 	logic[31:0] instr_address, instr_readdata, data_address, data_writedata, data_readdata, register_v0; 
@@ -12,22 +12,23 @@ module addiu1;
 			clk = !clk;
 			#4;  
 		end
-	end 
+	end
+    
 	
 	always @(*) begin 
 		if(instr_address == 32'hBFC00000) begin 
-			instr_readdata = 32'b00100100010000100000000000001000; 
+			instr_readdata = 32'b10000000000000100000000000000000; 
 		end 
 		if(instr_address == 32'hBFC00004) begin 
 			instr_readdata = 32'b00000000000000000000000000001000; 
 		end
-		if(instr_address == 32'hBFC00008) begin 
+        if(instr_address == 32'hBFC00008) begin 
 			instr_readdata = 32'b00100100000000000000000000000000; 
 		end
 	end
 	always @(negedge clk) begin
 		if (instr_address==0) begin
-			assert(register_v0 ==8);
+			assert(register_v0 ==-1);
 			else $fatal(1,"Wrong Output");
 		end
 		

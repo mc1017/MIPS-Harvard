@@ -19,14 +19,32 @@ module pc_update(
 	logic branch_d,jump_d,fail;
 	logic [31:0] pc_target;
 	initial begin
-		pc_out_d=-4;
+		pc_out_d=32'hBFC00000-4;
 	end
+	
 	always @(posedge clk) begin
 		branch_d<=branch;
 		jump_d<=jump;
 		if (branch || jump) begin
 			fail=0;
-			if (branch) begin
+			pc_out_d<=pc4; 
+			pc_target<=fail?(pc4+4):pc_out;
+		end else begin
+			pc_out=pc4;
+			if (branch_d || jump_d) begin
+				pc_out_d<=pc_target;
+			end else begin
+				pc_out_d<=pc_out;
+			end
+		end
+	end
+	
+	
+    always @(*) begin
+        if (reset) begin
+            pc_out=32'hBFC00000;
+        end 
+		if (branch) begin
 			shift=immediate<<2;
 			out=pc4+shift;
 			case (instruction[31:26])
@@ -106,7 +124,8 @@ module pc_update(
 					end
 				end
 			endcase
-		end else if (jump) begin
+			end 
+			if (jump) begin
 			case (instruction[31:26])
 				6'b000010: pc_out=target; //jump
 				6'b000011: begin  //jump and link
@@ -123,23 +142,7 @@ module pc_update(
 					end
 				end 
 			endcase
-        end
-			pc_out_d<=pc4; 
-			pc_target<=fail?(pc4+4):pc_out;
-
-		end else begin
-			pc_out=pc4;
-			if (branch_d || jump_d) begin
-				pc_out_d<=pc_target;
-			end else begin
-				pc_out_d<=pc_out;
 			end
-		end
-	end
-    always @(*) begin
-        if (reset) begin
-            pc_out=32'hBFC00000;
-        end 
     end
 	
 	

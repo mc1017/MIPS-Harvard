@@ -51,8 +51,7 @@ module mips_cpu_harvard(
 	always @(posedge clk) begin//active reset
 		if (reset) begin
 			active=1;
-		end
-		if (instr_address==0) begin
+		end else if (instr_address==0) begin
 			active=0; 
 		end 
 	end 
@@ -86,7 +85,7 @@ module mips_cpu_harvard(
 	unsign unsign_block(instruction, unsign); 
 	branch_data branch_data_block(insop, imm, alub1); 
 	shift_control shift_control_block(instruction, reg_read_a, sa, alua_in); 
-	sb sb_block(insop, sb_reg_in, sb_mem_in, sb_out); 
+	sb sb_block(insop, sb_mem_in, sb_reg_in, sb_out); 
 	
 	
 endmodule 

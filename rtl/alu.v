@@ -59,7 +59,6 @@ typedef enum logic[3:0]{
                     eq=1;
                 end
                 else if (($unsigned(reg_read_a)-$unsigned(alub))<0) begin
-                    $display("%d", $unsigned(reg_read_a)-$unsigned(alub));
                     lt=1;
                 end
                 else begin
@@ -115,7 +114,6 @@ typedef enum logic[3:0]{
                 hi = multiplier[63:32];
                 lo = multiplier[31:0];
             end
-            $display("%b %b",hi, lo );
             
         end
         else if (ALUcon == OPCODE_SLL) begin
