@@ -5,7 +5,7 @@ module data_address_control(
 );
 
     always @(*) begin
-        if (instruction[31:26] == 6'b100110) begin
+        if ((instruction[31:26] == 6'b100110) || (instruction[31:26] == 6'b100010)) begin
             address_out = address - address % 4;
         end 
 		else begin 

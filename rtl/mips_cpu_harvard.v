@@ -48,7 +48,7 @@ module mips_cpu_harvard(
 		active=0;
 	end
 	
-	always @(posedge clk) begin//active reset
+	always @(*) begin//active reset
 		if (reset) begin
 			active=1;
 		end else if (instr_address==0) begin
