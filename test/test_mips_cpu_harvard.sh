@@ -25,15 +25,30 @@ if [[ $instruction != "all_cases" ]]; then
 
         #run program
         set +e
-        ./test/Outputs/${TESTNAME}
+        ./test/Outputs/${TESTNAME} > test/4-Output/${TESTNAME}.stdout
         RESULT=$?
         set -e
-        if [[ RESULT -eq 0 ]] ; then
-            echo "${TESTNAME} ${instruction} Pass"
-        else
+        if [[ "${RESULT}" -ne 0 ]] ; then
             echo "${TESTNAME} ${instruction} Fail"
+            exit
         fi
+        PATTERN="CPU : OUT :"
+        NOTHING=""
+        set +e
+        grep "${PATTERN}" test/4-Output/${TESTNAME}.stdout > test/4-Output/${TESTNAME}.out-lines
+        set -e
 
+        sed -e "s/${PATTERN}/${NOTHING}/g" test/4-Output/${TESTNAME}.out-lines > test/4-Output/${TESTNAME}.out
+        set +e
+        diff -w test/5-Reference/${TESTNAME}.out test/4-Output/${TESTNAME}.out > /dev/null
+        RESULT=$?
+        set -e
+        if [[ "${RESULT}" -ne 0 ]] ; then
+            echo "${TESTNAME} ${instruction} Fail"
+        else
+            echo "${TESTNAME} ${instruction} Pass"
+        fi
+        
         rm -r test/Outputs
     done
 else
@@ -51,13 +66,28 @@ else
 
         #run program    
         set +e
-        ./test/Outputs/${TESTNAME}
+        ./test/Outputs/${TESTNAME} > test/4-Output/${TESTNAME}.stdout
         RESULT=$?
         set -e
-        if [[ RESULT -eq 0 ]] ; then
-            echo "${TESTNAME} ${TESTNAME:: -1} Pass"
-        else
+        if [[ "${RESULT}" -ne 0 ]] ; then
             echo "${TESTNAME} ${TESTNAME:: -1} Fail"
+            exit
+        fi
+        PATTERN="CPU : OUT :"
+        NOTHING=""
+        set +e
+        grep "${PATTERN}" test/4-Output/${TESTNAME}.stdout > test/4-Output/${TESTNAME}.out-lines
+        set -e
+
+        sed -e "s/${PATTERN}/${NOTHING}/g" test/4-Output/${TESTNAME}.out-lines > test/4-Output/${TESTNAME}.out
+        set +e
+        diff -w test/5-Reference/${TESTNAME}.out test/4-Output/${TESTNAME}.out > /dev/null
+        RESULT=$?
+        set -e
+        if [[ "${RESULT}" -ne 0 ]] ; then
+            echo "${TESTNAME} ${TESTNAME:: -1} Fail"
+        else
+            echo "${TESTNAME} ${TESTNAME:: -1} Pass"
         fi
         rm -r test/Outputs
         

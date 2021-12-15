@@ -1,0 +1,3 @@
+CPU : OUT :       144
+TB : Finished : active=0
+test/2-BranchandJump/bltzal2.v:71: $finish called at 116 (1s)

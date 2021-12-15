@@ -1,0 +1,3 @@
+CPU : OUT :         0
+TB : Finished : active=0
+test/0-HaltandBasic/jr2.v:30: $finish called at 20 (1s)

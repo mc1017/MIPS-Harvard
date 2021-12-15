@@ -1,0 +1,3 @@
+CPU : OUT :        96
+TB : Finished : active=0
+test/2-BranchandJump/bne2.v:55: $finish called at 76 (1s)

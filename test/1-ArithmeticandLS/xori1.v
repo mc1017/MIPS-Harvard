@@ -29,16 +29,20 @@ module xori1;
 		end
 	end
 	always @(negedge clk) begin
-		if (instr_address==0) begin
-			assert(register_v0 ==5);
-			else $fatal(1,"Wrong Output");
+		if (instr_address==0 && active==0) begin
+			$display("CPU : OUT :%d", register_v0);
+			$display("TB : Finished : active=0");
+			$finish;
 		end
 		
 	end
 	
     
+	logic[31:0] instr_readdata_be; 
+	assign instr_readdata_be = {instr_readdata[7:0], instr_readdata[15:8], instr_readdata[23:16], instr_readdata[31:24]}; 
+    
 	
-	mips_cpu_harvard dut(clk, reset, active, register_v0, clk_enable, instr_address, instr_readdata, data_address, data_write, data_read, data_writedata, data_readdata);
+	mips_cpu_harvard dut(clk, reset, active, register_v0, clk_enable, instr_address, instr_readdata_be, data_address, data_write, data_read, data_writedata, data_readdata);
 	mips_cpu_data_memory dm(clk, clk_enable, data_address, data_writedata, data_write, data_read, reset, data_readdata);
 	
-endmodule 
+endmodule  

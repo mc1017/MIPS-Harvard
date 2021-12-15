@@ -1,0 +1,3 @@
+CPU : OUT :         8
+TB : Finished : active=0
+test/0-HaltandBasic/addiu1.v:32: $finish called at 28 (1s)

@@ -1,0 +1,3 @@
+CPU : OUT :         2
+TB : Finished : active=0
+test/2-BranchandJump/bgezal1.v:41: $finish called at 44 (1s)

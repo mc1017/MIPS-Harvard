@@ -1,0 +1,3 @@
+CPU : OUT :        44
+TB : Finished : active=0
+test/2-BranchandJump/jal2.v:53: $finish called at 68 (1s)
