@@ -16,10 +16,10 @@ module divu4;
 	
 	always @(*) begin 
 		if(instr_address == 32'hBFC00000) begin 
-			instr_readdata = 32'b0100100100001000000000000111110; 
+			instr_readdata = 32'b00100100100001000000000000111110; 
 		end 
 		if(instr_address == 32'hBFC00004) begin 
-			instr_readdata = 32'b00000000101001000000000000011011; 
+			instr_readdata = 32'b0000000010000101000000000011011; 
 		end
         if(instr_address == 32'hBFC0000C) begin 
 			instr_readdata = 32'b00000000000000000011000000010000; 

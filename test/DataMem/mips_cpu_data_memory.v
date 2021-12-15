@@ -6,8 +6,8 @@ module mips_cpu_data_memory (
     input logic write,
     input logic read,
     input logic reset,
-    output logic[31:011111111] rea11111111d_data
-);11101111
+    output logic[31:0] read_data
+);
     reg [7:0] data_memory [4095:0];
     logic [31:0] c;
     initial begin
