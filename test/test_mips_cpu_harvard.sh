@@ -12,7 +12,7 @@ if [[ $instruction != "all_cases" ]]; then
     TESTCASES="test/*/${instruction}[0-9]*.v"
     #strip instructin that ends with 0-9
     for i in ${TESTCASES} ; do
-        mkdir test/4-Outputs
+        mkdir test/Outputs
         
         dir=$(basename "$(dirname ${i})")
         #middle directory
@@ -21,11 +21,11 @@ if [[ $instruction != "all_cases" ]]; then
 
         #compile program
         iverilog -g 2012 \
-            -o test/4-Outputs/${TESTNAME} ${i} $1/mips_cpu_*.v
+            -o test/Outputs/${TESTNAME} ${i} $1/mips_cpu_*.v test/DataMem/mips_cpu_data_memory.v
 
         #run program
         set +e
-        ./test/4-Outputs/${TESTNAME}
+        ./test/Outputs/${TESTNAME}
         RESULT=$?
         set -e
         if [[ RESULT -eq 0 ]] ; then
@@ -34,12 +34,12 @@ if [[ $instruction != "all_cases" ]]; then
             echo "${TESTNAME} ${instruction} Fail"
         fi
 
-        rm -r test/4-Outputs
+        rm -r test/Outputs
     done
 else
-    TESTCASES="test/*/*.v"
+    TESTCASES="test/*/*[0-9]*.v"
     for i in ${TESTCASES} ; do
-        mkdir test/4-Outputs
+        mkdir test/Outputs
         dir=$(basename "$(dirname ${i})")
         #middle directory
     
@@ -47,11 +47,11 @@ else
         
         #compile program
         iverilog -Wall -g 2012 \
-            -o test/4-Outputs/${TESTNAME} ${i} $1/mips_cpu_*.v
+            -o test/Outputs/${TESTNAME} ${i} $1/mips_cpu_*.v test/DataMem/mips_cpu_data_memory.v
 
         #run program    
         set +e
-        ./test/4-Outputs/${TESTNAME}
+        ./test/Outputs/${TESTNAME}
         RESULT=$?
         set -e
         if [[ RESULT -eq 0 ]] ; then
@@ -59,7 +59,7 @@ else
         else
             echo "${TESTNAME} ${TESTNAME:: -1} Fail"
         fi
-        rm -r test/4-Outputs
+        rm -r test/Outputs
         
     done
 
