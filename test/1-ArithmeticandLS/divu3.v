@@ -1,4 +1,4 @@
-module mthi1;
+module divu3;
 	
 	logic clk, reset, active, clk_enable, data_write, data_read; 
 	logic[31:0] instr_address, instr_readdata, data_address, data_writedata, data_readdata, register_v0; 
@@ -16,18 +16,27 @@ module mthi1;
 	
 	always @(*) begin 
 		if(instr_address == 32'hBFC00000) begin 
-			instr_readdata = 32'b00100100001000010000000000000101; 
+			instr_readdata = 32'b00100100100001000000000000111110; 
 		end 
 		if(instr_address == 32'hBFC00004) begin 
-			instr_readdata = 32'b00000000001000000000000000010001; 
+			instr_readdata = 32'b00100100101001010000000001100011; 
 		end
         if(instr_address == 32'hBFC00008) begin 
-			instr_readdata = 32'b00000000000000000001000000010000; 
+			instr_readdata = 32'b00000000101001000000000000011011; 
 		end
         if(instr_address == 32'hBFC0000C) begin 
-			instr_readdata = 32'b00000000000000000000000000001000; 
+			instr_readdata = 32'b00000000000000000011000000010000; 
 		end
         if(instr_address == 32'hBFC00010) begin 
+			instr_readdata = 32'b00000000000000000011100000010010; 
+		end
+        if(instr_address == 32'hBFC00014) begin 
+			instr_readdata = 32'b00000000110001110001000000100001; 
+		end
+        if(instr_address == 32'hBFC00018) begin 
+			instr_readdata = 32'b00000000000000000000000000001000; 
+        end
+		if(instr_address == 32'hBFC0001C) begin 
 			instr_readdata = 32'b00100100000000000000000000000000; 
 		end
 	end

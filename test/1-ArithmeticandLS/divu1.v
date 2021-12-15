@@ -4,8 +4,6 @@ module divu1;
 	logic[31:0] instr_address, instr_readdata, data_address, data_writedata, data_readdata, register_v0; 
 	
 	initial begin  
-		$dumpfile("divu.vcd"); 
-		$dumpvars(0, divu1); 
 		reset = 0; 
 		clk_enable = 1; 
 		clk = 1; 
