@@ -1,4 +1,4 @@
-module srav1;
+module srav3;
 	
 	logic clk, reset, active, clk_enable, data_write, data_read; 
 	logic[31:0] instr_address, instr_readdata, data_address, data_writedata, data_readdata, register_v0; 
@@ -12,28 +12,25 @@ module srav1;
 			clk = !clk;
 			#4;  
 		end
-	end 
+	end
 	
 	always @(*) begin 
 		if(instr_address == 32'hBFC00000) begin 
 			instr_readdata = 32'b00100100100001000110000000000110; 
 		end 
 		if(instr_address == 32'hBFC00004) begin 
-			instr_readdata = 32'b00100100001000010000000000000010; 
+			instr_readdata = 32'b00000000000001000001000000000111; 
 		end
         if(instr_address == 32'hBFC00008) begin 
-			instr_readdata = 32'b00000000001001000001000000000111; 
-		end
-		if(instr_address == 32'hBFC0000C) begin 
 			instr_readdata = 32'b00000000000000000000000000001000; 
 		end
-		if(instr_address == 32'hBFC00010) begin 
+		if(instr_address == 32'hBFC0000C) begin 
 			instr_readdata = 32'b00100100000000000000000000000000; 
 		end
 	end
 	always @(negedge clk) begin
 		if (instr_address==0) begin
-			assert(register_v0 ==32'd6145);
+			assert(register_v0 ==32'd24582);
 			else $fatal(1,"Wrong Output");
 		end
 		
