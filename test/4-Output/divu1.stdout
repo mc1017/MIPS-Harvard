@@ -1,0 +1,4 @@
+VCD info: dumpfile divu.vcd opened for output.
+CPU : OUT :         7
+TB : Finished : active=0
+test/1-ArithmeticandLS/divu1.v:49: $finish called at 68 (1s)
