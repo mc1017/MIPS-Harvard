@@ -20,7 +20,7 @@ module mips_cpu_harvard(
     input logic[31:0]  data_readdata
 );
 	
-	logic[31:0] instruction, a, b, reg_write_data, reg_read_a, reg_read_b, alub1, imm, aluout, hi, lo, target, pc4, pc_in, pc_out, link_data, reg_write_data_1, reg_write_data_2, reg_write_data_3, mem_addr_hold, alub_in, alua_in, sa, r2, sb_reg_in, sb_mem_in, sb_out; 
+	logic[31:0] instruction, a, b, reg_write_data, reg_read_a, reg_read_b, alub1, imm, aluout, hi_in, lo_in, hi_out, lo_out, target, pc4, pc_in, pc_out, link_data, reg_write_data_1, reg_write_data_2, reg_write_data_3, reg_write_data_4, mem_addr_hold, alub_in, alua_in, sa, r2, sb_reg_in, sb_mem_in, sb_out; 
 	logic[1:0] alucwire; 
 	logic[3:0] alucon; 
 	logic[4:0] addrs, addrt, addrd, reg_write_addr, reg_write_addr_hold; 
@@ -67,6 +67,7 @@ module mips_cpu_harvard(
 		alub_in = (alusrc == 0) ? reg_read_b : alub1; 
 		mem_addr_hold = aluout; 
 		data_writedata = ((insop == 6'b101001) || (insop == 6'b101000)) ? sb_out : reg_read_b; 
+		reg_write_data = (insop == 6'b000000 && func == 6'b010000) ? hi_out : (insop == 6'b000000 && func == 6'b010010) ? lo_out : reg_write_data_4; 
 		if (instr_address==0) begin
 			register_v0 = r2;  
 		end
@@ -74,14 +75,14 @@ module mips_cpu_harvard(
 	
 	mips_cpu_register_file regfile(clk, clk_enable, reset, r2, addrs, addrt, reg_write_data, reg_write_addr, regwrite, reg_read_a, reg_read_b); 
 	mips_cpu_control control_block(insop,addrt, func, regdst, jump, branch, data_read, memtoreg, alucwire, data_write, alusrc, regwrite); 
-	mips_cpu_alu alu_block(alua_in, alub_in, alucon, unsign, eq, lt, aluout, lo, hi); 
+	mips_cpu_alu alu_block(alua_in, alub_in, alucon, unsign, eq, lt, aluout, lo_in, hi_in); 
 	mips_cpu_alucontrol alucontrol_block(func, insop, alucwire, alucon); 
 	mips_cpu_pc_update pcupdate_block(clk_enable,clk,reset, branch, jump, eq, lt, instruction, reg_read_a, imm, target, pc4, pc_out, link_data); 
 	mips_cpu_load load_block(instruction, reg_write_data_1, reg_write_data_2); 
 	mips_cpu_data_address_control dac_block(mem_addr_hold, instruction, data_address); 
-	mips_cpu_link link_block(reg_write_addr_hold, instruction, reg_write_data_3, link_data, reg_write_addr, reg_write_data); 
+	mips_cpu_link link_block(reg_write_addr_hold, instruction, reg_write_data_3, link_data, reg_write_addr, reg_write_data_4); 
 	mips_cpu_lw lw_block(instruction, mem_addr_hold, reg_write_data_2, reg_read_b, reg_write_data_3); 
-	mips_cpu_hilo hilo_block(hi, lo, reg_read_a, insop, func); 
+	mips_cpu_hilo hilo_block(hi_in, lo_in, reg_read_a, insop, func, hi_out, lo_out); 
 	mips_cpu_unsign unsign_block(instruction, unsign); 
 	mips_cpu_branch_data branch_data_block(insop, imm, alub1); 
 	mips_cpu_shift_control shift_control_block(instruction, reg_read_a, sa, alua_in); 
