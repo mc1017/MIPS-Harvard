@@ -3,7 +3,9 @@ module mips_cpu_hilo(
 	input logic[31:0] lo_in, 
 	input logic[31:0] reg_read_a, 
 	input logic[5:0] insop, 
-	input logic[5:0] func
+	input logic[5:0] func, 
+	output logic[31:0] hi_out, 
+	output logic[31:0] lo_out 
 	);
 	
 	logic[31:0] hi, lo; 
@@ -31,5 +33,7 @@ module mips_cpu_hilo(
 			end 
 			endcase 
 		end 
+		hi_out = hi; 
+		lo_out = lo; 
 	end 
 endmodule 

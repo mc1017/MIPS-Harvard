@@ -51,6 +51,8 @@ module mips_cpu_control(
 			6'b000110: controlsig = 10'b1000001000; 
 			6'b100011: controlsig = 10'b1000001000; 
 			6'b100110: controlsig = 10'b1000001000; 
+			6'b010000: controlsig = 10'b1000001000; 
+			6'b010010: controlsig = 10'b1000001000; 
 			endcase
 		end
 		6'b001100: controlsig = 10'b0000001111; 

@@ -19,24 +19,33 @@ module tb(
 	
 	always @(*) begin 
 		if(instr_address == 32'hBFC00000) begin 
-			instr_readdata = 32'b10011000000000100000000000000000; 
+			instr_readdata = 32'b00100100100001001010101010101010; 
 		end 
 		if(instr_address == 32'hBFC00004) begin 
-			instr_readdata = 32'b00000000000000000000000000001000; 
+			instr_readdata = 32'b00000000000001000010010000000000; 
 		end
         if(instr_address == 32'hBFC00008) begin 
+			instr_readdata = 32'b00100100100001000110000000000110; 
+		end
+		if(instr_address == 32'hBFC0000C) begin 
+			instr_readdata = 32'b00000000000001000001000010000011; 
+		end
+		if(instr_address == 32'hBFC00010) begin 
+			instr_readdata = 32'b00000000000000000000000000001000; 
+		end
+        if(instr_address == 32'hBFC00014) begin 
 			instr_readdata = 32'b00100100000000000000000000000000; 
 		end
 	end
 	always @(negedge clk) begin
-		if (instr_address==0) begin
-			assert(register_v0 ==32'h000000FF);
+		if (instr_address==0) begin	
+			assert(register_v0 ==32'hEAAA9801);
 			else $fatal(1,"Wrong Output");
 		end
 		
 	end
 	
 	mips_cpu_harvard dut(clk, reset, active, register_v0, clk_enable, instr_address, instr_readdata, data_address, data_write, data_read, data_writedata, data_readdata);
-	data_memory dm(clk, clk_enable, data_address, data_writedata, data_write, data_read, reset, data_readdata);
+	mips_cpu_data_memory dm(clk, clk_enable, data_address, data_writedata, data_write, data_read, reset, data_readdata);
 	
 endmodule 
