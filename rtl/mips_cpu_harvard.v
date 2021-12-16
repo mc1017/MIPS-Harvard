@@ -66,7 +66,7 @@ module mips_cpu_harvard(
 		reg_write_data_1 = (memtoreg == 0) ? aluout : data_readdata; 
 		alub_in = (alusrc == 0) ? reg_read_b : alub1; 
 		mem_addr_hold = aluout; 
-		data_writedata = ((insop == 6'b101001) || (insop == 6'b101000)) ? sb_out : reg_read_b; 
+		data_writedata =  sb_out; 
 		reg_write_data = (insop == 6'b000000 && func == 6'b010000) ? hi_out : (insop == 6'b000000 && func == 6'b010010) ? lo_out : reg_write_data_4; 
 		if (instr_address==0) begin
 			register_v0 = r2;  
