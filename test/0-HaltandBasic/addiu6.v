@@ -19,7 +19,7 @@ module addiu6;
 			instr_readdata = 32'b00100100010000101111111111111111; 
 		end 
 		if(instr_address == 32'hBFC00004) begin 
-			instr_readdata = 32'b00100100000000100000000000000010; 
+			instr_readdata = 32'b00100100010000100000000000000010; 
 		end
 		if(instr_address == 32'hBFC00008) begin 
 			instr_readdata = 32'b00000000000000000000000000001000; 
