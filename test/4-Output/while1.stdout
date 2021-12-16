@@ -1,0 +1,3 @@
+CPU : OUT :         4
+TB : Finished : active=0
+test/3-Functions/while1.v:50: $finish called at 244 (1s)
