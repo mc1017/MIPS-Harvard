@@ -16,31 +16,36 @@ module mips_cpu_pc_update(
 );
     logic signed[31:0] out;
 	logic signed[31:0] shift,pc_out;
-	logic branch_d,jump_d,fail;
+	logic branch_d,jump_d,fail,reset_d;
 	logic [31:0] pc_target;
 	initial begin
 		pc_out_d=32'hBFC00000-4;
 	end
 	
 	always @(posedge clk) begin
-		branch_d<=branch;
-		jump_d<=jump;
-		if (branch || jump) begin
-			fail=0;
-			pc_out_d<=pc4; 
-			pc_target<=fail?(pc4+4):pc_out;
+		if (reset) begin
+			reset_d<=reset;
 		end else begin
-			pc_out=pc4;
-			if (branch_d || jump_d) begin
-				pc_out_d<=pc_target;
-			end else begin
-				pc_out_d<=pc_out;
+			if (clk_enable) begin
+				branch_d<=branch;
+				jump_d<=jump;
+				if (branch || jump) begin
+					fail=0;
+					pc_out_d<=pc4; 
+					pc_target<=fail?(pc4+4):pc_out;
+				end else begin
+					if (branch_d || jump_d) begin
+						pc_out_d<=pc_target;
+					end else begin
+						pc_out_d<=pc_out;
+					end
+				end
+			end
+			if (reset_d) begin
+				pc_out_d<=32'hBFC00000;
+				reset_d=0;
 			end
 		end
-		
-		if (reset) begin
-            pc_out_d<=32'hBFC00000;
-        end 
 	end
 	
 	
@@ -126,8 +131,7 @@ module mips_cpu_pc_update(
 					end
 				end
 			endcase
-			end 
-			if (jump) begin
+		end  else if (jump) begin
 			case (instruction[31:26])
 				6'b000010: pc_out=target; //jump
 				6'b000011: begin  //jump and link
@@ -145,8 +149,10 @@ module mips_cpu_pc_update(
 				end 
 			endcase
 			
-			end
-    end
+			end else begin
+			pc_out=pc4;
+		end	
+	end
 	
 	
 endmodule
