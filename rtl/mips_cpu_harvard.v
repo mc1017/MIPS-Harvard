@@ -28,7 +28,7 @@ module mips_cpu_harvard(
 	logic branch, jump, eq, lt, regdst, alusrc, memtoreg, regwrite, unsign; 
 	
 	//zero-extend imm in case of ANDI/ORI/XORI, otw sign-extend 
-	assign imm = ((insop == 6'b001100) || (insop == 6'b001101) || (insop == 6'b001110) || (insop == 6'b001001)) ? {{16{instruction[15]}} , instruction[15:0]} : {{16'h0000} , instruction[15:0]};
+	assign imm = ((insop == 6'b001100) || (insop == 6'b001101) || (insop == 6'b001110)) ? {{16'h0000} , instruction[15:0]} : {{16{instruction[15]}} , instruction[15:0]}; 
 	
 	assign target = {pc_out[31:28] , instruction[25:0] , 2'b00}; //acquire target 
 	
