@@ -1,9 +1,10 @@
-module slti7;
+module sltiu6;
 	
 	logic clk, reset, active, clk_enable, data_write, data_read; 
 	logic[31:0] instr_address, instr_readdata, data_address, data_writedata, data_readdata, register_v0; 
 	
 	initial begin 
+        
 		reset = 0; 
 		clk_enable = 1; 
 		clk = 1; 
@@ -19,13 +20,13 @@ module slti7;
 			instr_readdata = 32'b00100100100001000000000000000001; 
 		end
         if(instr_address == 32'hBFC00004) begin 
-			instr_readdata = 32'b00100100101001010000000000001011; 
+			instr_readdata = 32'b00100100101001010000000101001011; 
 		end
         if(instr_address == 32'hBFC00008) begin 
 			instr_readdata = 32'b00000000100001010010000000100011; 
 		end 
 		if(instr_address == 32'hBFC0000C) begin 
-			instr_readdata = 32'b00101000100000101111111110110011; 
+			instr_readdata = 32'b00101100100000101111111110110011; 
 		end
 		if(instr_address == 32'hBFC00010) begin 
 			instr_readdata = 32'b00000000000000000000000000001000; 
