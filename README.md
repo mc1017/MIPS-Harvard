@@ -10,7 +10,7 @@ The goal of this coursework is not to get a single circuit working in a single p
 The emphasis on creating a "real" CPU makes this a more complex task than implementing a toy CPU with lots of extra debug hooks. In particular, the emphasis on memory-based input/output is very realistic. 
 
 
-**Deliverables**
+#Deliverables
 
 rtl/mips_cpu_bus.v or rtl/mips_cpu_harvard.v : An implementation of a MIPS CPU which meets the pre-specified template for signal names and interface timings. You may also include other verilog modules in files of the form rtl/mips_cpu/*.v and/or rtl/mips_cpu_*.v. If you include both a bus and a harvard verilog file it will be assumed that you want the bus version to be assessed. Any files not matching these patterns will be ignored.
 
@@ -26,7 +26,7 @@ At least one diagram or flow-chart describing your testing flow or approach.
 Area and timing summary for the "Cyclone IV E ‘Auto’" variant in Quartus (same as used in the EE1 "CPU" project).
 (2021/12/13) A 5th page may be used, but only for references.
 
-**Instruction Set**
+#Instruction Set
 
 The target instruction-set is 32-bit big-endian MIPS1, as defined by the MIPS ISA Specification (Revision 3.2).
 
